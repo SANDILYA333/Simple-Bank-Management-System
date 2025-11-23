@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Login – Credora Bank</title>
+
+    <style>
+        .form-wrapper {
+            width: 420px;
+            margin: 100px auto;
+            background: rgba(15, 20, 30, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-wrapper h2 {
+            color: white;
+            text-align:center;
+            margin-bottom: 20px;
+        }
+
+        .form-wrapper input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .form-wrapper .btn {
+            width:100%;
+        }
+
+        canvas#particle-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="particle-canvas"></canvas>
+
+<div class="form-wrapper">
+    <h2>Login to Your Account</h2>
+
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button id="loginBtn" class="btn btn-secondary">Login</button>
+
+    <a href="index.html" style="color:#aaa; display:block; text-align:center; margin-top:10px;">Back to Home</a>
+</div>
+
+<!-- Main JS (contains callApi + particles) -->
+<!-- 1. Main JS with callApi -->
+<script src="./Script.js"></script>
+ <!-- or correct relative path -->
+
+<!-- 2. Then your inline login handler -->
+<script>
+document.getElementById("loginBtn").addEventListener("click", async () => {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    if (!email || !password) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    const payload = new URLSearchParams({ email, password });
+
+    try {
+        const data = await callApi("/api/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: payload.toString()
+        });
+
+        console.log("Login response:", data);
+
+        const token = (data.token || data.jwt || null);
+        const accountNumber = (data.accountNumber || data.accountNo || data.account_number || null);
+
+        if (token) localStorage.setItem("credoraToken", token);
+        if (accountNumber) localStorage.setItem("credoraAccountNumber", accountNumber);
+        localStorage.setItem("credoraEmail", email);
+
+        alert("Login successful!");
+        window.location.href = "dashboard.html";
+    } catch (err) {
+        console.error(err);
+    }
+});
+</script>
+
+
+</body>
+</html>

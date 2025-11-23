@@ -1,0 +1,80 @@
+Perfect, Sandilya 👑 — here’s your **complete, practical tech stack** for the **Bank Management System (Java + MySQL + Swing)** — optimized for clarity, efficiency, and a smooth dev experience 👇
+
+---
+
+## 🧰 **Tech Stack Breakdown**
+
+### 🟩 **1. Programming Language:**
+
+**Java (JDK 17 or above)**
+→ Core language for logic, OOP, and handling user operations.
+💡 Why: Stable, secure, platform-independent, and perfect for JDBC + Swing apps.
+
+---
+
+### 🗃️ **2. Database:**
+
+**MySQL (v8.0+)**
+→ Stores user accounts, balances, and transaction details.
+💡 Why: Easy to integrate with Java via JDBC and lightweight for local projects.
+
+---
+
+### 🔗 **3. Database Connector:**
+
+**JDBC (Java Database Connectivity)**
+→ Connects your Java program with the MySQL database.
+💡 File required: `mysql-connector-j-8.x.x.jar`
+(You’ll add this JAR to your project’s classpath.)
+
+---
+
+### 💻 **4. User Interface:**
+
+**Java Swing**
+→ For GUI screens (Login, Create Account, Dashboard).
+💡 Why: Built into Java (no extra setup), perfect for learning UI event handling.
+
+---
+
+### 🧩 **5. IDE (Development Environment):**
+
+Use any one:
+
+* **IntelliJ IDEA** 🧠 (recommended – best UI + DB integration)
+* **Eclipse** ⚙️
+* **VS Code with Java Extension Pack** 💻
+
+---
+
+### ⚙️ **6. Database Management Tool:**
+
+**MySQL Workbench / phpMyAdmin / DBeaver**
+→ To visualize tables, run SQL queries, and verify data easily.
+
+---
+
+### 📦 **7. Libraries / Tools Used:**
+
+| Tool                | Purpose                                  |
+| ------------------- | ---------------------------------------- |
+| `java.sql.*`        | For JDBC connection & SQL queries        |
+| `javax.swing.*`     | GUI components (frames, buttons, labels) |
+| `java.awt.*`        | Layouts and basic GUI design             |
+| `JOptionPane`       | Quick message popups                     |
+| `PreparedStatement` | Secure SQL operations                    |
+| `ResultSet`         | Fetch data from database                 |
+
+---
+
+### 🧠 **8. Optional Enhancements (Later Stages):**
+
+| Add-on                       | Purpose               |
+| ---------------------------- | --------------------- |
+| **bcrypt / SHA-256 hashing** | Secure PIN storage    |
+| **JavaFX**                   | Modern UI upgrade     |
+| **Maven/Gradle**             | Dependency management |
+| **Log4j / SLF4J**            | Logging for debugging |
+
+---
+
